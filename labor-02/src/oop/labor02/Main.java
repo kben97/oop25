@@ -6,6 +6,8 @@ import oop.labor02.rectangle.Rectangle;
 
 import oop.labor02.dateUtil.DateUtil;
 
+import oop.labor02.myDate.MyDate;
+
 public class Main {
     public static void main(String[] args) {
         //1.
@@ -59,5 +61,22 @@ public class Main {
         System.out.println(DateUtil.isValidDate(2020,4, 31) == false);
         System.out.println(DateUtil.isValidDate(2020,1, 31) == true);
 
+        System.out.println();
+        MyDate date1=new MyDate(2025,3,2);
+        if(DateUtil.isValidDate(date1.getYear(),date1.getMonth(),date1.getDay())==false) {
+            System.out.println("Invalid date. Please enter a valid date.");
+        }
+        else {
+            System.out.println(date1.getYear() + "." + date1.getMonth() + "." + date1.getDay() + ".");
+            System.out.println(date1.toString());
+        }
+        MyDate date2=new MyDate(2025,2,29);
+        if(DateUtil.isValidDate(date2.getYear(),date2.getMonth(),date2.getDay())==false) {
+            System.out.println("Invalid date. Please enter a valid date.");
+        }
+        else {
+            System.out.println(date2.getYear() + "." + date2.getMonth() + "." + date2.getDay() + ".");
+            System.out.println(date2.toString());
+        }
     }
 }

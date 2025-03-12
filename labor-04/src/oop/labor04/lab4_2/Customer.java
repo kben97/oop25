@@ -1,18 +1,17 @@
-package oop.labor03.lab3_2;
+package oop.labor04.lab4_2;
 
-import oop.labor03.lab3_1.BankAccount;
+import oop.labor04.lab4_2.BankAccount;
+
+import java.util.ArrayList;
 
 public class Customer {
     private String firstName;
     private String lastName;
-    public static final int MAX_ACCOUNTS=10;
-    private int numAccounts;
-    private BankAccount accounts[]=new BankAccount[MAX_ACCOUNTS];
+    private ArrayList<BankAccount> accounts = new ArrayList<>();
 
-    public Customer(String firstName,String lastName) {
+    public Customer(String firstName, String lastName) {
         this.firstName=firstName;
         this.lastName=lastName;
-        numAccounts=0;
     }
 
     public void addAccount(BankAccount account)
@@ -27,6 +26,10 @@ public class Customer {
     }
 
     public BankAccount getAccount(String accountNumber) {
+        for(DataType item : array) {
+
+        }
+
         for(int i=0;i<numAccounts;i++) {
             if(accounts[i].getAccountNumber().equals(accountNumber)==true) {
                 return accounts[i];

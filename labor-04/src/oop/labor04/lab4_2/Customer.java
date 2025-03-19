@@ -16,30 +16,20 @@ public class Customer {
 
     public void addAccount(BankAccount account)
     {
-        if(numAccounts<MAX_ACCOUNTS) {
-            accounts[numAccounts]=account;
-            numAccounts++;
-        }
-        else {
-            System.out.println("Account limit reached. Cannot create more accounts.");
-        }
+        accounts.add(account);
     }
 
     public BankAccount getAccount(String accountNumber) {
-        for(DataType item : array) {
-
-        }
-
-        for(int i=0;i<numAccounts;i++) {
-            if(accounts[i].getAccountNumber().equals(accountNumber)==true) {
-                return accounts[i];
+        for(BankAccount item : accounts) {
+            if(item.getAccountNumber().equals(accountNumber)) {
+                return item;
             }
         }
         return null;
     }
 
     public int getNumAccounts() {
-        return numAccounts;
+        return accounts.size();
     }
 
     public String getFirstName() {
@@ -56,15 +46,10 @@ public class Customer {
 
     public void closeAccount(String accountNumber) {
         int ok=1;
-        for(int i=0;i<numAccounts;i++) {
-            if(accounts[i].getAccountNumber().equals(accountNumber)==true) {
+        for(BankAccount item : accounts) {
+            if(item.getAccountNumber().equals(accountNumber)) {
                 ok=0;
-                for(int j=i+1;j<numAccounts;j++) {
-                    accounts[j-1]=accounts[j];
-                }
-                accounts[numAccounts-1]=null;
-                numAccounts--;
-                break;
+                accounts.remove(item);
             }
         }
         if(ok==1) {
@@ -75,8 +60,8 @@ public class Customer {
     public String toString() {
         StringBuffer result = new StringBuffer();
         result.append(getFirstName() + ' ' + getLastName() + " accounts:" + getNumAccounts() + "\n");
-        for(int i=0;i<numAccounts;++i){
-            result.append( "\t" + accounts[i] +"\n");
+        for(BankAccount item : accounts) {
+            result.append("\t" + item + "\n");
         }
         return result.toString();
     }
